@@ -48,6 +48,13 @@ Metode penelitian pada paper terhadulu terdiri dari beberapa tahapan. Tahapan te
 Pengumpulan data dilakuka dengan cara mengambil responden dari sekolah menengah atas kelas 7-11. Pengambilan data dilakukan selama satu minggu tanpa berhenti. Para responden menggunakan alat ActiGraph GT3X+ selama tujuh hari tanpa dilepas. Data dari alat tersebut dikumpulkan dan terdapat 322 data yang terdiri dari 102 data dari responden berjenis kelami laki-kali dan 220 data dari responden berjenis kelamin laki-laki. Total responden yang berpartisipasi pada penelitian ini ada 92
 orang.
 
+Pemrosesan data yang dilakukan ada beberapa tahap. Karena data yang didapatkan mengandung data dari \textit{triaxial accelerometer} dan data yang paling berpengaruh adalah data pada sumbu vertikal sehingga \textit{feature} adalah sumbu vertikal. Data yang masih multi dimensi ditransformasikan menjadi satu dimensi sehingga menjadi lebih sederhana dan mengurangi \textit{noise} di dalam data. Data yang berupa \textit{awake time} dan \textit{sleep time} digabungkan menjadi Unix
+Epoch time untuk tiap-tiap menit. Data kosong yang diakibatkan dari pelepasan perangkat juga akan dihandle dengan cara dijadikan \textit{sleep time} maupun dihapus. 
+
+Metode yang digunakan pada paper pendahulu adalah metode \textit{Deep Learning}. Metode tersebut juga dibandingkan dengan beberapa metode lainnya. Metode-metode lain yang digunakan sebagai pembanding adalah Logistic Regression, Multi-Layer Perceptrons (MLPs), Convolutional Neural Network (CNN), Recurrent Nerual Networks (RNN), Long short-term memory (LSTM) RNN, dan Time-Batched Long Short-Term Memory (TB-LSTM) RNN.
+
+Logistic regression adalah sebuah metode statistika. Metode ini mampu mencari korelasi antara beberapa variabel independen dengan variabel dependen yang berlawanan. Model ini dapat memastikan bahwa kita akan selalu mendapatkan keluaran probabilistik antara 0 dan 1. \cite{Kleinbaum.2010}
+
 \textit{Deep Learning} adalah algoritma pembelajaran mesin yang menggunakan metode pembelajaran representatif. Metode tersebut dilakukan dengan memproses data mentah menjadi representasi tingkat yang lebih tinggi. Hal ini membuat algoritma tersebut dapat menemukan pola yang akan digunakan untuk melakukan klasifikasi secara otomatis. \cite{LeCun.2015}
 
 \printbibliography[title = Daftar Pustaka]
