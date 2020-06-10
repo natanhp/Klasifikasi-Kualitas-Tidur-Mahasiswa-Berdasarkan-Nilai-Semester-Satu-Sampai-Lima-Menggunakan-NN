@@ -1,7 +1,10 @@
-\documentclass[12pt, a4paper, twoside]{article}
+\documentclass[12pt, a4paper]{article}
 \usepackage{indentfirst}
 \usepackage[backend=biber, citestyle=ieee]{biblatex}
 \usepackage{ragged2e}
+\usepackage{multicol}
+\usepackage{graphicx}
+\graphicspath{{./images/}}
 \addbibresource{references.bib}
 \title{Klasifikasi Kualitas Tidur Mahasiswa Berdasarkan Nilai Semester Satu Sampai Semester Lima Menggunakan Neural Network}
 \author{Natan Hari Pamungkas}
@@ -17,6 +20,7 @@
 Keywords: Data Mining, Neural Network, Sleep Quality
 
 \section{Pendahuluan}
+\begin{multicols}{2}
 \justifying
 Nilai mata kuliah adalah komponen penting bagi mahasiswa. Sebagian mahasiswa biasanya berusaha untuk menjaga nilai mata kuliah mereka agar minimal lulus sehingga tidak perlu mengulang. Nilai mata kuliah tiap semester ini juga yang akan mempengaruhi Indeks Prestasi Kumulatif (IPK) mahasiswa, dimana IPK akan digunakan untuk seleksi melamar pekerjaan. Meskipun bukan jaminan untuk mendapatkan pekerjaan, tapi IPK digunakan sebagai syarat administratif yang mutlak, sehingga jika IPK
 kurang maka kemungkinan besar akan gagal untuk mendapatkan pekerjaan. \cite{Idris.2020}
@@ -66,6 +70,16 @@ RNN adalah algoritma \textit{machine learning} yang didesain mirip dengan sistem
 LSTM adalah algoritma \textit{machine learning} yang berdasarkan pada RNN. Model ini memiliki kelebihan karena dapat mengatasi \textit{error backflow}. Hal ini dikarenakan algoritma gradient yang efisien membuat error flownya konstan. \cite{Hochreiter.1997}
 
 \textit{Deep Learning} adalah algoritma pembelajaran mesin yang menggunakan metode pembelajaran representatif. Metode tersebut dilakukan dengan memproses data mentah menjadi representasi tingkat yang lebih tinggi. Hal ini membuat algoritma tersebut dapat menemukan pola yang akan digunakan untuk melakukan klasifikasi secara otomatis. \cite{LeCun.2015}
+
+\section{Metodologi}
+Dataset yang didapatkan merupakan hasil pengumpulan bersama mahasiswa-mahasiswa yang mengambil kelas Teknik Penambangan Data (TPD) tahun ajaran 2019/2020. Data yang dikumpulkan berupa nama, npm, nilai mata kuliah selama semester satu sampai semester lima, dan label-labelnya. Walaupun banyak label, namun hanya dipakai satu saja sesuai dengan judul penelitian.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.28]{see_data}
+
+\end{multicols}
+
 
 \printbibliography[title = Daftar Pustaka]
 \end{document}
