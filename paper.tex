@@ -77,9 +77,84 @@ Dataset yang didapatkan merupakan hasil pengumpulan bersama mahasiswa-mahasiswa 
 \centering
 \vspace{0.2cm}
 \includegraphics[scale=0.28]{see_data}
+\vspace{0.2cm}
+
+\justifying
+Data yang sudah didapatkan kemudian dimuat ke dalam program. Data ini kemudian ditampilkan semua nama kolomnya dan informasinya. Kegunaanya adalah untuk mengeliminasi kolom yang tidak diperlukan seperti nama dan npm serta label-label yang tidak diperlukan. Hal ini berguna juga untuk melihat apakah ada data yang kosong atau tidak.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.9]{split_test}
+\vspace{0.2cm}
+
+\justifying
+Setelah dipastikan bahwa data besih dan dapat digunakan, maka selanjutnya bagi data ke dalam training dan testing secara acak. Pembagian ini dilakukan dengan porsi 75\% data training dan 25\% data testing. Hal ini dilakukan agar model dapat dilatih dan divalidasi menggunakan data yang berbeda. \cite{scikit-learn} 
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.7]{encoded}
+\vspace{0.2cm}
+
+\justifying
+Karena label masih berupa tipe data string seperti rendah, sedang, dan tinggi, maka perlu diubah ke bentuk numerik. Pengubahan menggunakan \textit{one-hot} encoding sehingga setiap label direpresentasikan menjadi \textit{list} yang merepresentasikan bilangan biner yaitu 0 jika tidak mengandung label tersebut dan 1 jika mengandung label tersebut. Urutan dari labelnya adalah mulai dari rendah, sedang, dan tinggi. Hal ini dikarenakan model tidak dapat memproses data yang bukan bertipe numerik.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.3]{normalize}
+\vspace{0.2cm}
+
+\justifying
+Karena nilai yang terdapat data ada di pada jarak yang cukup besar, yaitu 0-100, maka perlu dilakukan normalisasi. Normaliasi ini mengubah data menjadi di dalam skala 0 sampai 1. Hal ini dilakukan agar model dapat memproses data dengan lebih baik dan lebih cepat. \cite{tensorflow2015-whitepaper}
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.26]{dataset}
+\vspace{0.2cm}
+
+\justifying
+Data yang sudah terproses kemudian diubah menjadi tensorflow dataset. Dataset ini terdiri dari data dan tiap-tiap labelnya. Hal ini bertujuan agar model dapat memproses data dengan mudah.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.31]{model}
+\vspace{0.2cm}
+
+\justifying
+Pada tahapan selanjutnya adalah pembuatan model. Disini menggunakan model \textit{sequential} dari tensorflow. Model ini menyusun tumpukan \textit{layer} secara sekuensial. Pada model ini digunakan tiga layer, yaitu satu \textit{input layer}, satu \textit{hidden layer}, dan yang terakhir \textit{output layer}. Pada \textit{input layer}, model menerima masukan data dengan dimensi (None, 36) dan mengeluarkan data dengan dimensi (None, 8). Selanjutnya adalah \textit{hidden layer} yang
+menerima data dan mengeluarkan data dengan dimensi (None, 16). Dua layer diatas ini menggunakan aktivasi relu agar dapat belajar dengan cepat. Layer terakhir adalah \textit{output layer} yang menggunakan aktivasi softmax  dan mengeluarkan data dengan dimensi (None, 3). Fungsi softmax ini mengeluarkan prediksi dengan probabilitas, sehingga bentuk seluruh keluarnya probabilitasnya 100\%. Dalam pembuatan model ini menggunakan fungsi \textit{dropout} dengan nilai 0.5 yaitu mengeliminasi setengah
+dari \textit{node} layer secara acak agar tidak terjadi \textit{overfitting}. 
+
+\section{Result}
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.25]{model_graph}
+\vspace{0.2cm}
+
+\justifying
+Gambar diatas merupakan hasil dari model. Terlihat bahwa ada tiga layer, namun tidak ditampilkan secara rinci. Di dalam grafik tersebut juga terdapat fungsi eperti \textit{dropout}.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.3]{acc}
+\vspace{0.2cm}
+
+\justifying
+Hasil training pada model dapat dilihat pada grafik. Disitu terlihat bahwa \textit{loss} baik pada training maupun testing sudah mengalami penurunan. Pada bagian akurasi training mengalami kenaikan namun setelah mencapai 0.7 tidak lagi mengalami kenaikan. Sedangkan akurasi testing tidak mengalami perubahan, yaitu tetap 0.6. Hal ini menunjukan bahwa model mengalami \textit{overfitting}.
+
+\centering
+\vspace{0.2cm}
+\includegraphics[scale=0.22]{heatmap}
+\vspace{0.2cm}
+
+\justifying
+Karena model mengalami overfitting, maka harus melihat kembali data. Pada \textit{heatmap} tersebut terlihat korelasi antara \textit{features} dan label KualitasTidur. Terlihat bahwa tidak ada korelasi yang kuat antara nilai-nilai dengan kualitas tidur mahasiswa.
+
+\section{Diskusi}
+Penelitian ini menunjukan bahwa kualitas tidur tidak dipengaruhi oleh nilai mata kuliah mahasiswa dari semester satu samai semester lima. Hal ini ditunjukan dengan tidak adanya korelasi yang kuat antara nilai mata kuliah dengan kualitas tidur. Hal ini berbeda dengan penelitian yang pernah dilakukan pada paper terdahulu.
 
 \end{multicols}
 
-
+\newpage
 \printbibliography[title = Daftar Pustaka]
 \end{document}
